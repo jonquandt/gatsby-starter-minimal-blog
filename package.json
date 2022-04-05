@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "Test blog using Gatsby and MDX",
+  "name": "Test-Gatsby-MDX",
   "description": "Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.",
   "version": "1.3.12",
   "author": "Jon Quandt <jlquandt@gmail.com>",
