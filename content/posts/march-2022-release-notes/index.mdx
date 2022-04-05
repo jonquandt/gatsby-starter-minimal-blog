@@ -1,0 +1,85 @@
+---
+title: March 2022 Release Notes
+date: 2022-04-01
+description: Related Documents for Congressional Committee Prints to Public Laws; Improved Access for Senate Amendment Text in the Congressional Record; Enhancements on Citation Search Tab to Display Multiple Results
+tags:
+  - release notes
+  - articles
+banner: ./govinfo_eagle_homepage.png
+---
+
+The first major **govinfo** deployment of the year featured a variety of new features, functionality, and improvements including 81 individually tracked changes. This article covers some of the highlights such as display of related Congressional committee prints on Public and Private Law collection details pages as well as an API service for this relationship, improved access to the text of Senate Amendments in the Congressional Record, the capability to access multiple results for a shared citation from the Citation tab of the search box, the addition of API parameters for the new Serial Set collection to enable filtering by volume or individual documents, and much more.  
+
+ **New Content:** Over 31,700 content packages (roughly equivalent to one bound printed document) were made available since the the last deployment. Notable submissions since the last release included the [Unified Agenda](/app/details/FR-2022-01-31/2021-28220); court opinions for the  [U.S. Bankruptcy Court Middle District of Louisiana (LAMB)](/app/collection/uscourts/bankruptcy/lamb), [U.S. District Court Western District of Oklahoma (OKWD)](/app/collection/uscourts/district/okwd), and [U.S. District Court Northern District of Georgia (GAND)](/app/collection/uscourts/district/gand); interim packages for the [Privacy Act Issuances](/app/collection/pai/interim)> collection; the Public Papers of the Presidents of the United States: Barack Obama [(2016, Book II)](/app/details/PPP--2016-book2) and Photographic Portfolio[Book II](/app/details/PPP-PHOTOS-2016-book2x); and the [Budget of the U.S. Government for FY 2023](/app/collection/budget/2023)>. 
+
+ **Feature Articles:** Eight articles were featured since the middle of January. These included articles commemorating [Black History Monthy](/features/black-history-month-2022) and [Presidents’ Day](/features/presidents-day-2022), features about the [New Madrid Earthquakes](/features/new-madrid-earthquakes)> from the early 1800s and the [110th Anniversary of the Cherry Trees](/features/anniversary-cherry-trees)> in Washington, D.C., and articles highlighting the President’s [State of the Union]((/features/state-of-the-union) address, the [March Bulk Data Task Force Meeting](/features/bdtf-meeting-march-2022), [Federal Appropriations for FY 2022](/features/federal-appropriations-fiscal-year-2022), and the release of the [Budget of the U.S. Government for FY 2023](/features/budget-fy2023)>.  
+
+## Related Documents for Congressional Committee Prints to Public and Private Laws:
+From applicable Details pages in the Public and Private Laws collection, it is now possible to see links to related Congressional committee prints for that legislation. Committee prints are publications issued by Congressional committees that include topics related to their legislative or research activities, as well as other matters such as memorial tributes. Subjects of committee prints vary greatly, but some typical categories are draft reports and bills, directories, statistical materials, investigative reports, historical reports, situational studies, confidential staff reports, hearings, and legislative analyses. Visit (x/help/cprtx)(yHelpy)> to learn more about the Congressional Committee Prints collection. 
+
+Below is an example of related committee print documents linked to a bill’s [Details](/app/details/PLAW-116publ93/related)> page. 
+
+[!Image of Related Committee Prints on a Public Law Details page](./plaw_cprt.png)
+
+Functionality was also put into place this release to make the new committee prints to to Public and Private Laws relationships available through the [Related Documents API service](https://api.govinfo.gov/related/PLAW-116publ93?api_key=DEMO_KEY). 
+
+## Improved Access for Text of Senate Amendments in the Congressional Record:
+
+As part of a targeted goal to improve access and increase transparency for the content available on **govinfo**, this release featured development to enhance findability of Senate amendment information within the Congressional Record. The text of all submitted and proposed Senate amendments for a given day is available within a document or “granule” in the Congressional Record. [168 Cong. Rec. S1778](/app/details/CREC-2022-03-24/CREC-2022-03-24-pt1-PgS1778-3) is one example. Within that granule are smaller sections that contain the actual text of each individual amendment. As of this release, new daily issues of the Congressional Record will have these new sub-granules making it easier to access each amendment. Over the coming weeks, issues of the Congressional Record back to the first day of the 117th Congress will also have these sub-granules. An example of one of the smaller sub-granules for the original top-level granule is [168 Cong. Rec. S1778 - Text of Senate Amendment 5010](/app/details/CREC-2022-03-24/CREC-2022-03-24-pt1-PgS1778-4). 
+
+The images below depict a page of the Congressional Record with the section of one of the new sub-granules highlighted, as well as an image of the new sub-granules listed in browse and on the Document in Context page below the original top-level granule. 
+
+[!Images of Congressional Record page and Senate Amendment section with a list of other Senate amendments](./Amendments.png)
+
+In an upcoming release, the **govinfo** [Link Service](/link-docs)> will make it easier to access individual Senate Amendments by congress and amendment number. The pattern being considered for the Link Service links to amendments is: <em>link/crec/samendment/{{congress}}/{{amendmentNumber}}</em>. Using the example presented here, the link would be: `link/crec/samendment/117/5010`.
+
+## Enhancements on the Citation Search Tab to display Multiple Results:
+
+There are several collections in **govinfo** for which citation structure is very important to the identity of the document. Furthermore, there are occasions where more than one document will possess the same citation. Previously, when documents shared the same citation, **govinfo’s** Citation search tab did not have the capability to display more than the first result that matched the citation criteria, but this release enabled the capability for more than one result to be retrieved and displayed for users. This is possible for the daily Congressional Record, bound Congressional Record, U.S. Congressional Serial Set, Federal Register, Public Papers of the President, Statutes at Large, and Weekly Compilation of Presidential Documents. Below is an image of an example from the Congressional Serial Set using the citation information for [House Document 69-806](/#citation?csh=%7B%22collection%22%3A%22SERIALSET%22%2C%22searchCriteria%22%3A%5B%7B%22value%22%3A%22docclass%22%2C%22displayValue%22%3A%22HDOC%22%7D%2C%7B%22value%22%3A%22browsecongressnav_s%22%2C%22displayValue%22%3A%22069%3B1925-1927%3B8522%20to%208826%22%7D%2C%7B%22value%22%3A%22docnumber%22%2C%22displayValue%22%3A%22806%22%7D%2C%7B%22value%22%3A%22docpart%22%2C%22displayValue%22%3A%22-1%22%7D%5D%2C%22selectOptions%22%3A%5B%7B%22value%22%3A%22docpart%22%2C%22displayValue%22%3A%22-1%22%7D%5D%7D).  
+
+## Serial Set API Parameters for Filtering by Volume or Individual Documents:
+
+ In an effort to support users and data partners who consume the newly available digitized Congressional Serial Set content, the capability was deployed to retrieve Serial Set packages using the **govinfo** public API and a new “isGLP” parameter for the collection and published endpoints. This enhancement provides more flexibility for API users who want only granule-level packages or only volume-level packages. The default setting is to return both at the same time. The **govinfo**  team regularly prioritizes and makes improvements to the public API to increase the ability for users to easily work with our content. 
+
+## Additional Enhancements:
+
+- Adjusted the order of selections in the drop-down list on the Citation search tab.  
+- Updated the Congressional Documents collection to index first names of Presidents properly.  
+- Adjusted the extraction of the submitted statements in the Congressional Reports collection.  
+- Implemented a an update to ensure consistency of multiple granules’ titles in the Congressional Reports collection.  
+- Updated the share button title for Congressional Record section level documents.  
+- Created automated tests for Related Documents functionality.  
+- Fixed a bug with the historical toggle in search results.  
+- Increased maintainability of code for custom parsers.  
+- Enhanced PREMIS to capture embedded file format data at the bitstream level.  
+- Updated the Statutes at Large collection to extract Proclamation numbers.  
+- Updated parsers to correctly extract China Commission metadata in the Congressional Hearings collection.  
+- Resolved an issue how browse nodes display for the Privacy Act Issuances collection.  
+- Implemented refactoring improvements for web components based on a recent Java upgrade.  
+- Updated the Miscellaneous Government Publications collection to maintain metadata edits after the document is reprocessed and made a change to set “uniqueID” when there are package replacements.  
+- Added metadata for the MARC field 922 to the Miscellaneous Government Publication collection metadata.  
+- Provided the capability for the second line on search results to have a date consisting of only year information for the Miscellaneous Government Publications collection.   
+- Updated the Miscellaneous Government Publications collection schema to support a field with a “digitizedContent” value.  
+- Added new Government Authors to the Miscellaneous Government Publications lookup file.  
+- Incorporated a fix to prevent removal of double quotes at the beginning of U.S. Code granules.  
+- Updated title-casing on the White List and added a new Mapped Query.  
+- Updated persistence functionality to maintain removals of Subject values for Topic, Geographic, and Person.  
+- Fixed a bug caused by software code library changes that broke the Code of Federal Regulations’ Related Documents tab.  
+- Updated the Processor component to make graphics-submitted renditions optional for the Government Manual collection.  
+- Added Volume Number metadata values for older Code of Federal Register packages that were missing the values due to unique processing paths.  
+- Resolved an issue with duplication of values in the Citation search drop-down lists.  
+- Fixed an issue with broken thumbnail JPEG links in the public API.  
+- Updated Related Resources links on collection browse pages to go to new Federal Depository Library links.  
+- Updated daily quick links for Congressional Record, Congressional Calendars, and the Federal Register.  
+- Added functionality to ensure that unknown committee names are still transferred to **govinfo** metadata as parsed names in digitized Congressional Hearings.  
+- Added the **govinfo** search widget to the mobile view on the new Serial Set Topic Browse.  
+- Upgraded the documentation framework used by the **govinfo** Link Service and public API.  
+- Resolved an issue with the Economic Indicators collection that resulted in an extra parsed title field.  
+- Updated the public API Related Documents service to support multiple Code of Federal Regulations results for one API call.  
+- Upgraded numerous internal components’ schemas, and parsers.  
+- Implemented important and routine component upgrades, license and software updates, and security enhancements.  
+
+<div class="alert alert-info quick-tip"></div>
+
+## About Release Notes
+Changes to **govinfo** components are made through code deployments on a quarterly release cycle. Release Notes are published after deployments to highlight some of the key changes, summarize other noteworthy activities, and recap new content, feature articles, and top searches since the previous release [Read previous editions of Release Notes.](/features/release-notes)>
