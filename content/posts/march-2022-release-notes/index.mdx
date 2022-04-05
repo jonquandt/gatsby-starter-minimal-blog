@@ -5,7 +5,7 @@ description: Related Documents for Congressional Committee Prints to Public Laws
 tags:
   - release notes
   - articles
-banner: ./govinfo_eagle_homepage.jpg
+banner: ./govinfo_eagle_homepage.png
 ---
 
 The first major **govinfo** deployment of the year featured a variety of new features, functionality, and improvements including 81 individually tracked changes. This article covers some of the highlights such as display of related Congressional committee prints on Public and Private Law collection details pages as well as an API service for this relationship, improved access to the text of Senate Amendments in the Congressional Record, the capability to access multiple results for a shared citation from the Citation tab of the search box, the addition of API parameters for the new Serial Set collection to enable filtering by volume or individual documents, and much more.  
@@ -20,7 +20,6 @@ From applicable Details pages in the Public and Private Laws collection, it is n
 Below is an example of related committee print documents linked to a bill’s [Details](/app/details/PLAW-116publ93/related) page. 
 
 ![Image of Related Committee Prints on a Public Law Details page](./plaw_cprt.png)
-![Image of Related Committee Prints on a Public Law Details page](./plaw_cprt.jpg)
 
 Functionality was also put into place this release to make the new committee prints to to Public and Private Laws relationships available through the [Related Documents API service](https://api.govinfo.gov/related/PLAW-116publ93?api_key=DEMO_KEY). 
 
@@ -31,13 +30,15 @@ As part of a targeted goal to improve access and increase transparency for the c
 The images below depict a page of the Congressional Record with the section of one of the new sub-granules highlighted, as well as an image of the new sub-granules listed in browse and on the Document in Context page below the original top-level granule. 
 
 ![Images of Congressional Record page and Senate Amendment section with a list of other Senate amendments](./Amendments.png)
-![Images of Congressional Record page and Senate Amendment section with a list of other Senate amendments](./Amendments.jpg)
 
 In an upcoming release, the **govinfo** [Link Service](/link-docs) will make it easier to access individual Senate Amendments by congress and amendment number. The pattern being considered for the Link Service links to amendments is: `link/crec/samendment/{{congress}}/{{amendmentNumber}}`. Using the example presented here, the link would be: `link/crec/samendment/117/5010`.
 
 ## Enhancements on the Citation Search Tab to display Multiple Results:
 
 There are several collections in **govinfo** for which citation structure is very important to the identity of the document. Furthermore, there are occasions where more than one document will possess the same citation. Previously, when documents shared the same citation, **govinfo’s** Citation search tab did not have the capability to display more than the first result that matched the citation criteria, but this release enabled the capability for more than one result to be retrieved and displayed for users. This is possible for the daily Congressional Record, bound Congressional Record, U.S. Congressional Serial Set, Federal Register, Public Papers of the President, Statutes at Large, and Weekly Compilation of Presidential Documents. Below is an image of an example from the Congressional Serial Set using the citation information for [House Document 69-806](/#citation?csh=%7B%22collection%22%3A%22SERIALSET%22%2C%22searchCriteria%22%3A%5B%7B%22value%22%3A%22docclass%22%2C%22displayValue%22%3A%22HDOC%22%7D%2C%7B%22value%22%3A%22browsecongressnav_s%22%2C%22displayValue%22%3A%22069%3B1925-1927%3B8522%20to%208826%22%7D%2C%7B%22value%22%3A%22docnumber%22%2C%22displayValue%22%3A%22806%22%7D%2C%7B%22value%22%3A%22docpart%22%2C%22displayValue%22%3A%22-1%22%7D%5D%2C%22selectOptions%22%3A%5B%7B%22value%22%3A%22docpart%22%2C%22displayValue%22%3A%22-1%22%7D%5D%7D).  
+
+![Image of the Citation tab form and example of multiple results.](./Citation_multiple.png)
+
 
 ## Serial Set API Parameters for Filtering by Volume or Individual Documents:
 
@@ -60,7 +61,7 @@ There are several collections in **govinfo** for which citation structure is ver
 - Implemented refactoring improvements for web components based on a recent Java upgrade.  
 - Updated the Miscellaneous Government Publications collection to maintain metadata edits after the document is reprocessed and made a change to set “uniqueID” when there are package replacements.  
 - Added metadata for the MARC field 922 to the Miscellaneous Government Publication collection metadata.  
-- Provided the capability for the second line on search results to have a date consisting of only year information for the Miscellaneous Government Publications collection.   
+- Provided the capability for the second line on search results to have a date consisting of only year information for the Miscellaneous Government Publications collection.
 - Updated the Miscellaneous Government Publications collection schema to support a field with a “digitizedContent” value.  
 - Added new Government Authors to the Miscellaneous Government Publications lookup file.  
 - Incorporated a fix to prevent removal of double quotes at the beginning of U.S. Code granules.  
